@@ -1,17 +1,12 @@
-import type React from "react"
-import type { Metadata, Viewport } from "next"
-import { Toaster } from "@/components/ui/toaster"
-import { Suspense } from "react"
 import "./globals.css"
 
-export const metadata: Metadata = {
+export const metadata = {
   title: "ScanLead - Business Card Scanner",
   description: "Mobile-first PWA for scanning business cards",
-  generator: "v0.app",
   manifest: "/manifest.json",
 }
 
-export const viewport: Viewport = {
+export const viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 1,
@@ -21,16 +16,13 @@ export const viewport: Viewport = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode
-}>) {
+}) {
   return (
     <html lang="en">
-      <body className="font-sans antialiased">
-        <Suspense fallback={null}>
-          {children}
-          <Toaster />
-        </Suspense>
+      <body>
+        {children}
       </body>
     </html>
   )
