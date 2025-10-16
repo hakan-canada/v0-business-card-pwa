@@ -19,13 +19,15 @@ export default function HomePage() {
   const router = useRouter()
 
   useEffect(() => {
-    const savedAuth = sessionStorage.getItem("isAuthenticated")
-    const savedUsername = sessionStorage.getItem("username")
-    if (savedAuth === "true") {
-      setIsAuthenticated(true)
-      if (savedUsername) {
-        setUsername(savedUsername)
-        setHasUsername(true)
+    if (typeof window !== "undefined") {
+      const savedAuth = sessionStorage.getItem("isAuthenticated")
+      const savedUsername = sessionStorage.getItem("username")
+      if (savedAuth === "true") {
+        setIsAuthenticated(true)
+        if (savedUsername) {
+          setUsername(savedUsername)
+          setHasUsername(true)
+        }
       }
     }
   }, [])
@@ -37,7 +39,9 @@ export default function HomePage() {
       console.log("Password correct, authenticating...")
       setIsAuthenticated(true)
       setError("")
-      sessionStorage.setItem("isAuthenticated", "true")
+      if (typeof window !== "undefined") {
+        sessionStorage.setItem("isAuthenticated", "true")
+      }
     } else {
       console.log("Incorrect password")
       setError("Incorrect password")
@@ -57,7 +61,9 @@ export default function HomePage() {
       setUsername(formattedUsername)
       setHasUsername(true)
       setError("")
-      sessionStorage.setItem("username", formattedUsername)
+      if (typeof window !== "undefined") {
+        sessionStorage.setItem("username", formattedUsername)
+      }
     } else {
       setError("Please enter your username")
     }
@@ -134,7 +140,9 @@ export default function HomePage() {
   }
 
   const handleLogout = () => {
-    sessionStorage.clear()
+    if (typeof window !== "undefined") {
+      sessionStorage.clear()
+    }
     setIsAuthenticated(false)
     setHasUsername(false)
     setUsername("")
