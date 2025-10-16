@@ -32,11 +32,14 @@ export default function HomePage() {
 
   const handlePasswordSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    if (password === "proax") {
+    console.log("Password submitted:", password)
+    if (password.trim() === "proax") {
+      console.log("Password correct, authenticating...")
       setIsAuthenticated(true)
       setError("")
       sessionStorage.setItem("isAuthenticated", "true")
     } else {
+      console.log("Incorrect password")
       setError("Incorrect password")
     }
   }
