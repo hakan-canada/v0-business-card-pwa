@@ -133,6 +133,14 @@ export default function HomePage() {
     )
   }
 
+  const handleLogout = () => {
+    sessionStorage.clear()
+    setIsAuthenticated(false)
+    setHasUsername(false)
+    setUsername("")
+    setPassword("")
+  }
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
       <div className="container mx-auto px-4 py-8">
@@ -171,6 +179,10 @@ export default function HomePage() {
 
           <Button variant="outline" className="w-full mt-6 bg-transparent" onClick={() => router.push("/dashboard")}>
             View Dashboard
+          </Button>
+
+          <Button variant="destructive" className="w-full" onClick={handleLogout}>
+            Logout
           </Button>
         </div>
       </div>

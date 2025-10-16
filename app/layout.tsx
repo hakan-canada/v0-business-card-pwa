@@ -1,5 +1,5 @@
 import type React from "react"
-import type { Metadata } from "next"
+import type { Metadata, Viewport } from "next"
 import { Analytics } from "@vercel/analytics/next"
 import { Toaster } from "@/components/ui/toaster"
 import { Suspense } from "react"
@@ -10,8 +10,14 @@ export const metadata: Metadata = {
   description: "Mobile-first PWA for scanning business cards",
   generator: "v0.app",
   manifest: "/manifest.json",
+}
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
   themeColor: "#2563eb",
-  viewport: "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no",
 }
 
 export default function RootLayout({
