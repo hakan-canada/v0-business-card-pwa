@@ -1,0 +1,22 @@
+{
+  "name": "ScanLead - Business Card Scanner",
+  "short_name": "ScanLead",
+  "description": "Mobile-first PWA for scanning business cards",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2563eb",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/icon-192.jpg",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512.jpg",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
